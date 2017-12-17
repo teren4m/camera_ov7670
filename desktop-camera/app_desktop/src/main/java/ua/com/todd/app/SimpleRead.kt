@@ -17,7 +17,8 @@ class SimpleRead(portId: CommPortIdentifier, w: Int, h: Int) {
 
             infinityLoop {
                 println("Looking for image")
-                isImageStart(inputStream, 0)
+                while (!isImageStart(inputStream, 0)) {
+                }
 
                 for (y in 0 until h) {
                     for (x in 0 until w) {
@@ -48,10 +49,10 @@ class SimpleRead(portId: CommPortIdentifier, w: Int, h: Int) {
             if (COMMAND[index].toInt() == read(inputStream)) {
                 isImageStart(inputStream, index + 1)
             } else {
-                false
+                isImageStart(inputStream, 0)
             }
         } else {
-            isImageStart(inputStream, 0)
+            true
         }
     }
 }
