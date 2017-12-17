@@ -1,0 +1,17 @@
+apply plugin: 'kotlin'
+apply plugin: 'application'
+
+mainClassName = 'ua.com.todd.app.MainKt'
+
+defaultTasks 'run'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    testCompile 'junit:junit:4.12'
+    testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
+    compile project(':lib_matrix')
+}
